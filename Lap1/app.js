@@ -1,24 +1,14 @@
-// Nhập 2 số nguyên a và b 
-let a =  prompt("Nhập số nguyên a: ");
-let b = prompt("Nhập số nguyên b: ");
-// Chuyển a và b từ kiểu chuổi sang kiểu số
-var a1 = parseInt(a);
-var b1 = parseInt(b);
-
-// Tính tổng c của a và b 
-var c = a1 + b1;
-
-// In ra kết quả đồng thời bằng 2 cách
-document.write("Kết quả tính tổng của a và b là: " + c + "<br>");
-console.log("Kết quả tính tổng của a và b là: " + c);
-
-// Nhập vào 1 số nguyên d từ bàn phím
-let d = prompt("Nhập số nguyên d: ");
-var d1 = parseInt(d);
-
-// Tính tổng result của c và d (result = c + d)
-var result = c + d1;
-
-// In ra kết quả đồng thời bằng 2 cách
-alert("Kết quả tính tổng của c và d là: " + result);
-console.log("Kết quả tính tổng của c và d là: " + result);
+// javaScipt for lab1
+//khai bao bien a va nhap gia tri tu bam phim
+//nhap so nguyen a vao bam phim
+let a = prompt("Mời bạn nhập số nguyên A:");
+let a1 = parseInt(a);
+//nhap so nguyen b vao bam phim
+let b = prompt("Mời bạn nhập số nguyên B:");
+let b1 = parseInt(b);
+//tinh tong cua a va 
+let c = parseInt(a) + parseInt(b);
+let x = a + b;
+//in ra ket qua bang 2 cach
+document.write("Tổng của " + a + " và " + b + " là: " + c);
+console.log(x);
