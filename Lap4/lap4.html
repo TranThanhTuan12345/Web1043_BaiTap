@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lap4</title>
+</head>
+<body>
+    <script>
+        class Student {
+    constructor(id, first_name, last_name, class_id, email, soDienthoai, dob) {
+      this.id = id;
+      this.first_name = first_name;
+      this.last_name = last_name;
+      this.class_id = class_id;
+      this.email = email;
+      this.soDienthoai = soDienthoai;
+      this.dob = new Date(dob);
+    }
+  
+    getFullName() {
+      return this.first_name + " " + this.last_name;
+    }
+  
+    getCurrentAgeInYears() {
+      const today = new Date();
+      let age = today.getFullYear() - this.dob.getFullYear();
+      const monthDiff = today.getMonth() - this.dob.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < this.dob.getDate())) {
+        age--;
+      }
+      return age;
+    }
+  
+    getCurrentAgeInDays() {
+      const oneDay = 24 * 60 * 60 * 1000;
+      const today = new Date();
+      const diffDays = Math.round(Math.abs((this.dob.getTime() - today.getTime()) / oneDay));
+      return diffDays;
+    }
+  }
+  
+  // Tao danh sach 5 sinh viên
+  const studentList = [
+    new Student(1, 'Pham', 'Anh Tu', 'IT18301', 'tupa123@gmail.com', '0123456665', '2004-01-12'),
+    new Student(2, 'Le', 'Van Thuong', 'IT18301', 'lethuong@email.com', '0367051610', '2004-08-15'),
+    new Student(3, 'Nguyen', 'Thanh Nhan', 'IT18301', 'nhannt01@email.com', '0898480177', '2004-12-02'),
+    new Student(4, 'Nguyen', 'Xuan Quy', 'IT18301', 'quynx0001@example.com', '0123438576', '2000-09-21'),
+    new Student(5, 'Tran', 'Thanh Tuan', 'IT18301', 'tuanttpd08930@gmail.com', '0919825774', '2004-03-03'),
+  ];
+  
+  // sap xep tuoi theo ngay tu thap den cao 
+  studentList.sort((a, b) => a.getCurrentAgeInDays() - b.getCurrentAgeInDays());
+  
+  // In danh sach sinh vien 
+  console.log('Danh sách sinh viên:');
+  studentList.forEach(student => {
+    console.log(`- ${student.getFullName()} (${student.getCurrentAgeInYears()} tuổi; ${student.getCurrentAgeInDays()} ngày tuổi)`);
+  });
+  
+  // In width và height cua man hinh
+  console.log(`Kích thước màn hình: ${window.innerWidth} x ${window.innerHeight}`);
+    </script>
+</body>
+</html>
